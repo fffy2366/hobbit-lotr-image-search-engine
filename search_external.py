@@ -13,6 +13,13 @@ import argparse
 import cPickle
 import cv2
 import time
+from pyimagesearch import logger
+
+conf = logger.Logger()
+# conf.debug('debug')
+# conf.warn('tr-warn')
+# conf.info('ds-info')
+# conf.error('ss-error')
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()

@@ -12,6 +12,9 @@ import argparse
 import cPickle
 import cv2
 import time
+from pyimagesearch import logger
+
+conf = logger.Logger()
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -56,7 +59,12 @@ for (query, queryFeatures) in index.items():
             continue
         path = args["dataset"] + "/%s" % (imageName)
         result = cv2.imread(path)
-        print "\t%d. %s : %.3f" % (j + 1, imageName, score)
+        str = "\t%d. %s : %.3f" % (j + 1, imageName, score)
+        print str
+
+        conf.info(query)
+        conf.info(str)
+
 
         # # check to see if the first montage should be used
         # if j < 5:
