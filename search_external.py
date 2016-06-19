@@ -51,10 +51,14 @@ montageA = np.zeros((h * 5, w, 3), dtype="uint8")
 montageB = np.zeros((h * 5, w, 3), dtype="uint8")
 
 # loop over the top ten results
-for j in xrange(0, 5):
+for j in xrange(0, 50):
     # grab the result (we are using row-major order) and
     # load the result image
     (score, imageName) = results[j]
+    if(score>0.01):
+        break
+    if(imageName==args["query"]):
+        continue
     path = args["dataset"] + "/%s" % (imageName)
     result = cv2.imread(path)
 
